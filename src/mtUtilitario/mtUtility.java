@@ -2,24 +2,26 @@ package mtUtilitario;
 import java.util.Scanner;
 public class mtUtility {
 
-    public static Scanner sc = new Scanner(System.in);
-
-    public static int getPositiveNumber(String Label) {
-        System.out.print(Label);
-        int numero;
-        do {
+    public static int mtLeerNumero(int mtNumero) {
+        Scanner sc = new Scanner(System.in);
+        while (true) {
             try {
-                numero = Integer.parseInt(sc.nextLine());
-                if (numero <= 0)  {
-                    System.out.println("Ingrese un numero positivo");
+                System.out.print("Ingresa un número entero entre 0 y 4: ");
+                mtNumero = Integer.parseInt(sc.nextLine());
+
+                if (mtNumero >= 0 && mtNumero <= 4) {
+                    break;
+                } else {
+                    System.out.println("El número debe estar entre 0 y 4. Intenta nuevamente.");
                 }
             } catch (NumberFormatException e) {
-                System.out.println("  - Ingrese un numero valido");
-                numero = -1;
+                System.out.println("Entrada inválida. Debes ingresar un número entero. Intenta nuevamente.");
             }
-        } while (numero <= 0);   
-        return numero;
+        }
+
+        return mtNumero;
     }
+
     public final static void clearConsole() {
         try {
             String operatingSystem = System.getProperty("os.name");
@@ -33,4 +35,6 @@ public class mtUtility {
             System.out.println(e);
         }
     }
+
+    
 }
