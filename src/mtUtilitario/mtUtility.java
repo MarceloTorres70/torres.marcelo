@@ -22,7 +22,7 @@ public class mtUtility {
         return mtNumero;
     }
 
-    public final static void clearConsole() {
+    public final static void mtLimpiararConsola() {
         try {
             String operatingSystem = System.getProperty("os.name");
 
@@ -35,6 +35,5 @@ public class mtUtility {
             System.out.println(e);
         }
     }
-
     
 }
