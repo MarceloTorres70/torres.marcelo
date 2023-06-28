@@ -1,7 +1,12 @@
 package mtUtilitario;
 import java.util.Scanner;
 public class mtUtility {
-
+    /**
+    * Lee un número entero ingresado por el usuario y asegura que esté en el rango de 0 a 4 (inclusive).
+    *
+    * @param mtNumero El número entero a ser leído.
+    * @return El número entero válido ingresado por el usuario.
+    */
     public static int mtLeerNumero(int mtNumero) {
         Scanner sc = new Scanner(System.in);
         while (true) {
@@ -21,7 +26,11 @@ public class mtUtility {
 
         return mtNumero;
     }
-
+    /**
+    * Limpia la consola del sistema operativo actual.
+    * La implementación varía según el sistema operativo.
+    * Esta función es final y no puede ser sobrescrita.
+    */
     public final static void mtLimpiararConsola() {
         try {
             String operatingSystem = System.getProperty("os.name");
@@ -35,5 +44,4 @@ public class mtUtility {
             System.out.println(e);
         }
     }
-    
 }

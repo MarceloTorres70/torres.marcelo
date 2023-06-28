@@ -5,9 +5,9 @@ import mtUtilitario.mtColores;
 import mtUtilitario.mtUtility;
 public class App {
     public static void main(String[] args) throws Exception {
-        String mtCEDULA = "1727332247";
-        String mtNOMBRE = "marcelo torres";
-        String mtCORREO = "MARCELO.TORRES@EPN.EDU.EC";
+        final String mtCEDULA = "1727332247";
+        final String mtNOMBRE = "marcelo torres";
+        final String mtCORREO = "MARCELO.TORRES@EPN.EDU.EC";
         String mtUsuarioLogueado = "PROFE";
         mtUtility.mtLimpiararConsola();
         if (mtLogIn(mtCORREO, mtCEDULA) == true) {
@@ -20,7 +20,7 @@ public class App {
 
                         break;
                     case 3:
-
+                        System.out.println("Hora\t(l) Lunes\t(m) Martes\t(x) Miercoles\t(j) Jueves\t(v) Viernes\t(s) Sabado\t");
                         break;
                     case 4:
 
@@ -36,6 +36,10 @@ public class App {
         }
 
     }
+    /**
+    * Imprime la lista de archivos de la carpeta "Horarios".
+    * Utiliza colores en la consola para resaltar la presentación.
+    */
     public static void mtPresentarAlumnos() {
         String mtRutaCarpeta = "Horarios";
         System.out.println(mtColores.BOLD_PURPLE + "-----------------");
@@ -47,6 +51,12 @@ public class App {
             System.out.println(mtColores.RED + mtNombreArchivo);
         }
     }
+    /**
+    * Obtiene los nombres de los archivos en la carpeta especificada.
+    *
+    * @param mtRutaCarpeta Ruta de la carpeta de la cual se obtendrán los nombres de archivo.
+    * @return Conjunto HashSet que contiene los nombres de los archivos encontrados.
+    */
     public static HashSet<String> mtObtenerNombresArchivos(String mtRutaCarpeta) {
         HashSet<String> mtListaArchivos = new HashSet<>();
 
@@ -63,6 +73,13 @@ public class App {
         }
         return mtListaArchivos;
     }
+    /**
+    * Muestra el menú de opciones de carga horaria para alumnos.
+    * Recibe el nombre de usuario como parámetro.
+    *
+    * @param mtUsuario Nombre de usuario del alumno.
+    * @return Opción seleccionada por el usuario.
+    */
     public static int mtPresentarMenu(String mtUsuario) {
         int mtOpcionElegida = -1;
         System.out.println(mtColores.BOLD_PURPLE + "-----------------");
@@ -79,6 +96,14 @@ public class App {
         mtUtility.mtLimpiararConsola();
         return mtOpcionElegida;
     }
+    /**
+    * Realiza el inicio de sesión para un usuario estudiante o profesor.
+    * Solicita el nombre de usuario y la clave.
+    *
+    * @param mtUsuarioEstudiante Nombre de usuario del estudiante.
+    * @param mtClaveEstudiante   Clave del estudiante.
+    * @return true si el inicio de sesión es exitoso, false de lo contrario.
+    */
     public static boolean mtLogIn(String mtUsuarioEstudiante, String mtClaveEstudiante) {
         String mtUsuario;
         String mtClave;
@@ -111,4 +136,5 @@ public class App {
         }
         return false;
     }
+
 }
